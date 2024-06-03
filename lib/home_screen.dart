@@ -59,6 +59,15 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
               ),
+              SizedBox(height: 20),
+              Text(
+                'RM - ALUNO\N RM - ALUNO\n RM - ALUNO',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 12,
+                  color: Colors.white,
+                ),
+              ),
             ],
           ),
         ),
