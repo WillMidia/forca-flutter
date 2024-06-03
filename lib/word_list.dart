@@ -1,12 +1,21 @@
 const Map<String, String> wordList = {
-  'Oceano': 'Grande corpo contínuo de água salgada que cobre a maior parte da superfície terrestre.',
-  'Sustentavel': 'Capaz de ser mantido ou conservado a longo prazo, sem esgotar os recursos naturais ou causar danos ambientais significativos.',
-  'Economia': 'Sistema de produção, distribuição e consumo de bens e serviços em uma determinada área ou país.',
-  'Clima': 'Conjunto de condições atmosféricas de uma região ao longo do tempo, incluindo temperatura, precipitação e ventos.',
-  'Biodiversidade': 'Variedade de formas de vida em um determinado habitat ou ecossistema, incluindo a diversidade de espécies, genes e ecossistemas.',
-  'Pesca': 'Atividade de capturar peixes e outros organismos aquáticos para alimentação, comércio ou recreação.',
-  'Turismo': 'Atividade de viajar para lazer, recreação ou negócios, geralmente envolvendo a visita a lugares de interesse.',
-  'Energia': 'Capacidade de realizar trabalho ou causar mudanças, disponível em várias formas, incluindo elétrica, térmica e renovável.',
-  'Poluicao': 'Contaminação do meio ambiente por substâncias nocivas ou resíduos, afetando negativamente os ecossistemas e a saúde humana.',
-  'Conservacao': 'Proteção e gerenciamento dos recursos naturais para prevenir sua degradação, assegurar sua sustentabilidade e preservar a biodiversidade.',
+  'Plastico': 'Material sintético feito a partir de polímeros que podem ser moldados quando aquecidos, usado em uma variedade de aplicações.',
+  'Papel': 'Material feito a partir de fibras vegetais, geralmente provenientes de árvores, usado para escrever, imprimir e embalar.',
+  'Poliester': 'Tipo de plástico comumente usado em tecidos e garrafas de bebidas, conhecido por sua durabilidade e resistência a rugas.',
+  'Madeira': 'Material sólido e fibroso encontrado nos troncos e galhos das árvores, utilizado na construção, mobiliário e artesanato.',
+  'Vidro': 'Material sólido e transparente feito a partir do resfriamento de uma mistura de sílica, soda cáustica e calcário, usado em recipientes e janelas.',
+  'Aluminio': 'Metal leve e resistente, amplamente utilizado em embalagens, construção e indústria automobilística.',
+  'Borracha': 'Material elástico e flexível derivado da seiva de algumas plantas ou produzido sinteticamente, usado em pneus, calçados e vedantes.',
+  'Isopor': 'Material plástico espumado, leve e isolante térmico, comumente usado em embalagens e isolamento de construções.',
+};
+
+const Map<String, String> wordHints = {
+  'Plastico': 'Muitos recipientes são feitos deste material.',
+  'Papel': 'Você escreve nele.',
+  'Poliester': 'Se você não quer rugas, use roupas feitas disso.',
+  'Madeira': 'Muitos móveis são feitos deste material.',
+  'Vidro': 'Você olha através dele.',
+  'Aluminio': 'É um metal leve.',
+  'Borracha': 'Seus sapatos têm solas feitas disso.',
+  'Isopor': 'É usado para embalagem e é leve.',
 };

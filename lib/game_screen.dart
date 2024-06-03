@@ -11,6 +11,7 @@ class _GameScreenState extends State<GameScreen> {
   String word = '';
   String displayWord = '';
   String description = '';
+  String hint = '';
   int lives = 6;
   List<String> guessedLetters = [];
   Set<String> pressedLetters = {};
@@ -56,6 +57,7 @@ class _GameScreenState extends State<GameScreen> {
     setState(() {
       word = normalizeWord(randomIndex.toUpperCase());
       description = wordList[randomIndex]!;
+      hint = wordHints[randomIndex]!;
       displayWord = '_' * word.length;
       lives = 6;
       guessedLetters = [];
@@ -87,11 +89,11 @@ class _GameScreenState extends State<GameScreen> {
           context,
           MaterialPageRoute(
             builder: (context) => CongratulationsScreen(
-              word: word, // Pass the correct word here
+              word: word,
               description: description,
               onPlayAgain: () {
-                Navigator.pop(context); // Sair da tela de parabéns
-                startNewGame(); // Reiniciar o jogo
+                Navigator.pop(context);
+                startNewGame();
               },
             ),
           ),
@@ -99,7 +101,7 @@ class _GameScreenState extends State<GameScreen> {
       } else if (lives == 0) {
         showDialog(
           context: context,
-          barrierDismissible: false, // Impede que o pop-up seja fechado clicando fora dele
+          barrierDismissible: false,
           builder: (context) => AlertDialog(
             backgroundColor: Colors.white,
             title: Text('Você perdeu!', style: TextStyle(color: Colors.black)),
@@ -108,7 +110,7 @@ class _GameScreenState extends State<GameScreen> {
               TextButton(
                 onPressed: () {
                   Navigator.of(context).pop();
-                  startNewGame(); // Reiniciar o jogo
+                  startNewGame();
                 },
                 child: Text('Tentar Novamente', style: TextStyle(color: Colors.blue)),
               ),
@@ -119,26 +121,26 @@ class _GameScreenState extends State<GameScreen> {
     });
   }
 
-IconData getEmotionIcon() {
-  switch (lives) {
-    case 6:
-      return Icons.sentiment_very_satisfied;
-    case 5:
-      return Icons.sentiment_satisfied;
-    case 4:
-      return Icons.sentiment_neutral;
-    case 3:
-      return Icons.sentiment_dissatisfied;
-    case 2:
-      return Icons.sentiment_very_dissatisfied;
-    case 1:
-      return Icons.sentiment_very_dissatisfied_sharp; // Ícone de chorar
-    case 0:
-      return Icons.sentiment_very_dissatisfied_outlined; // Ícone de chorar
-    default:
-      return Icons.sentiment_very_dissatisfied;
+  IconData getEmotionIcon() {
+    switch (lives) {
+      case 6:
+        return Icons.sentiment_very_satisfied;
+      case 5:
+        return Icons.sentiment_satisfied;
+      case 4:
+        return Icons.sentiment_neutral;
+      case 3:
+        return Icons.sentiment_dissatisfied;
+      case 2:
+        return Icons.sentiment_very_dissatisfied;
+      case 1:
+        return Icons.sentiment_very_dissatisfied_sharp;
+      case 0:
+        return Icons.sentiment_very_dissatisfied_outlined;
+      default:
+        return Icons.sentiment_very_dissatisfied;
+    }
   }
-}
 
   @override
   Widget build(BuildContext context) {
@@ -166,7 +168,7 @@ IconData getEmotionIcon() {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                height: screenHeight * 0.4,
+                height: screenHeight * 0.3,
                 alignment: Alignment.center,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -188,11 +190,19 @@ IconData getEmotionIcon() {
                   ],
                 ),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 0), // Espaço menor entre a palavra e o texto "Vidas restantes"
               Text(
                 'Vidas restantes: $lives',
                 style: TextStyle(
                   fontSize: 24,
+                  color: Colors.white,
+                ),
+              ),
+              SizedBox(height: 20),
+              Text(
+                'Dica: $hint',
+                style: TextStyle(
+                  fontSize: 18,
                   color: Colors.white,
                 ),
               ),
@@ -213,7 +223,8 @@ IconData getEmotionIcon() {
                     child: Text(
                       letter,
                       style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 18
+,
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
                       ),
