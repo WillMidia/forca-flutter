@@ -92,15 +92,16 @@ class _GameScreenState extends State<GameScreen> {
     final screenWidth = mediaQuery.size.width;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Forca do Oceano'),
-        backgroundColor: Color(0xFF006994),
-      ),
-      body: Container(
-        color: Color.fromARGB(255, 1, 81, 112),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+  appBar: AppBar(
+    title: Text('Forca do Oceano'),
+    backgroundColor: Color(0xFF006994),
+  ),
+  body: SingleChildScrollView(
+    child: Container(
+      color: Color.fromARGB(255, 1, 81, 112),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
             Container(
               height: screenHeight * 0.4,
               child: Center(
@@ -150,6 +151,7 @@ class _GameScreenState extends State<GameScreen> {
           ],
         ),
       ),
+    ),
     );
   }
 }
